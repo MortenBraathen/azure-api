@@ -1,0 +1,345 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apimServiceName": {
+            "defaultValue": "dfo-dev",
+            "type": "String"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "maskinporten-po",
+                "description": "Common configuration for Maskinporten & PO",
+                "subscriptionRequired": false,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "maskinporten-ubw",
+                "description": "Felles komponenter for Maskinporten og UWB-API'er",
+                "subscriptionRequired": false,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/starter')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "Starter",
+                "description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+                "subscriptionRequired": true,
+                "approvalRequired": false,
+                "subscriptionsLimit": 1,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/unlimited')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "Unlimited",
+                "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+                "subscriptionRequired": true,
+                "approvalRequired": true,
+                "subscriptionsLimit": 1,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/aktiviteter')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/anlegg')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatte')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteFamilie')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansattefravar')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteKontering')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansattekurs')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteSidegmd')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/arbeidsordre')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/avgiftskoder')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/begreper')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/begrepsverdier')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/bilagstyper')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/brukere')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/starter/echo-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'starter')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/unlimited/echo-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'unlimited')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/firma')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/gl07logs')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/konteringsregler')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/kontoplan')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/koststeder')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/kunder')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/leverandorer')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/organisasjoner')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/prosjekter')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/regnskapsperioder')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/ressurser')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/stillinger')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/valutakoder')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/policies",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ],
+            "properties": {
+                "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <validate-jwt header-name=\"Authorization\" failed-validation-httpcode=\"401\" require-expiration-time=\"true\" require-scheme=\"Bearer\" require-signed-tokens=\"true\" output-token-variable-name=\"jwt\">\r\n      <openid-config url=\"{{maskinporten-url}}\" />\r\n      <required-claims>\r\n        <claim name=\"scope\" match=\"all\" separator=\" \">\r\n          <value>@(context.Variables.GetValueOrDefault&lt;string&gt;(\"scope\"))</value>\r\n        </claim>\r\n      </required-claims>\r\n    </validate-jwt>\r\n    <authentication-basic username=\"{{pouser}}\" password=\"{{popasswd}}\" />\r\n    <set-backend-service base-url=\"@(string.Format(&quot;{{po-url}}{0}&quot;, context.Variables.GetValueOrDefault&lt;string&gt;(&quot;poApiName&quot;)))\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+                "format": "xml"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/policies",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
+            ],
+            "properties": {
+                "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <validate-jwt header-name=\"Authorization\" failed-validation-httpcode=\"401\" require-expiration-time=\"true\" require-scheme=\"Bearer\" require-signed-tokens=\"true\" output-token-variable-name=\"jwt\">\r\n      <openid-config url=\"{{maskinporten-url}}\" />\r\n      <required-claims>\r\n        <claim name=\"scope\" match=\"all\" separator=\" \">\r\n          <value>@(context.Variables.GetValueOrDefault&lt;string&gt;(\"scope\"))</value>\r\n        </claim>\r\n      </required-claims>\r\n    </validate-jwt>\r\n    <authentication-basic username=\"{{ubwuser}}\" password=\"{{ubwpasswd}}\" />\r\n    <set-query-parameter name=\"companyId\" exists-action=\"override\">\r\n      <value>@(context.Request.MatchedParameters[\"firma\"])</value>\r\n    </set-query-parameter>\r\n    <set-backend-service base-url=\"@(string.Format(&quot;{{ubw-url}}{0}&quot;, context.Variables.GetValueOrDefault&lt;string&gt;(&quot;ubwApiName&quot;)))\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+                "format": "xml"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/policies",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/starter/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'starter')]"
+            ],
+            "properties": {
+                "value": "<!--\r\n            IMPORTANT:\r\n            - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n            - Only the <forward-request> policy element can appear within the <backend> section element.\r\n            - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n            - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n            - To add a policy position the cursor at the desired insertion point and click on the round button associated with the policy.\r\n            - To remove a policy, delete the corresponding policy statement from the policy document.\r\n            - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n            - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n            - Policies are applied in the order of their appearance, from the top down.\r\n        -->\r\n<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"5\" renewal-period=\"60\" />\r\n    <quota calls=\"100\" renewal-period=\"604800\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>",
+                "format": "xml"
+            }
+        }
+
+
+    ],
+    "outputs": {}
+}
