@@ -1,0 +1,192 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "operations_hent_aktiviteter_type": {
+            "value": null
+        },
+        "operations_hent_en_aktivitet_type": {
+            "value": null
+        },
+        "operations_hent_en_aktivitet_type_1": {
+            "value": null
+        },
+        "operations_hent_anlegg_type": {
+            "value": null
+        },
+        "operations_hent_et_anlegg_type": {
+            "value": null
+        },
+        "operations_hent_et_anlegg_type_1": {
+            "value": null
+        },
+        "operations_hente_flere_arbeidsordre_type": {
+            "value": null
+        },
+        "operations_hent_en_arbeidsordre_type": {
+            "value": null
+        },
+        "operations_hent_en_arbeidsordre_type_1": {
+            "value": null
+        },
+        "operations_hent_avgiftskoder_type": {
+            "value": null
+        },
+        "operations_hent_en_avgiftskode_type": {
+            "value": null
+        },
+        "operations_hent_en_avgiftskode_type_1": {
+            "value": null
+        },
+        "operations_hent_begreper_type": {
+            "value": null
+        },
+        "operations_hent_begrepsverdier_type": {
+            "value": null
+        },
+        "operations_hent_begrepsverdier_type_1": {
+            "value": null
+        },
+        "operations_alle_bilagstyper_type": {
+            "value": null
+        },
+        "operations_hent_en_bilagstype_type": {
+            "value": null
+        },
+        "operations_hent_en_bilagstype_type_1": {
+            "value": null
+        },
+        "operations_hent_brukere_type": {
+            "value": null
+        },
+        "operations_hent_en_bruker_type": {
+            "value": null
+        },
+        "operations_hent_en_bruker_type_1": {
+            "value": null
+        },
+        "operations_hent_et_firma_type": {
+            "value": null
+        },
+        "operations_hent_fra_gl07_logs_type": {
+            "value": null
+        },
+        "operations_hent_en_konteringsregel_type": {
+            "value": null
+        },
+        "operations_hent_en_konteringsregel_type_1": {
+            "value": null
+        },
+        "operations_hent_flere_konteringsregler_type": {
+            "value": null
+        },
+        "operations_hent_en_konto_type": {
+            "value": null
+        },
+        "operations_hent_en_konto_type_1": {
+            "value": null
+        },
+        "operations_hent_kontoplan_type": {
+            "value": null
+        },
+        "operations_hent_ett_koststed_type": {
+            "value": null
+        },
+        "operations_hent_ett_koststed_type_1": {
+            "value": null
+        },
+        "operations_hent_koststeder_type": {
+            "value": null
+        },
+        "operations_hent_en_kunde_type": {
+            "value": null
+        },
+        "operations_hent_en_kunde_type_1": {
+            "value": null
+        },
+        "operations_hent_kunder_type": {
+            "value": null
+        },
+        "operations_hent_en_leverandor_type": {
+            "value": null
+        },
+        "operations_hent_en_leverandor_type_1": {
+            "value": null
+        },
+        "operations_hent_flere_leverand_rer_type": {
+            "value": null
+        },
+        "operations_hent_et_prosjekt_type": {
+            "value": null
+        },
+        "operations_hent_et_prosjekt_type_1": {
+            "value": null
+        },
+        "operations_hent_flere_prosjekter_type": {
+            "value": null
+        },
+        "operations_hent_en_regnskapsperiode_type": {
+            "value": null
+        },
+        "operations_hent_en_regnskapsperiode_type_1": {
+            "value": null
+        },
+        "operations_hent_flere_regnskapsperioder_type": {
+            "value": null
+        },
+        "operations_hent_en_ressurs_type": {
+            "value": null
+        },
+        "operations_hent_en_ressurs_type_1": {
+            "value": null
+        },
+        "operations_hent_ressurser_type": {
+            "value": null
+        },
+        "operations_hent_en_valutakode_type": {
+            "value": null
+        },
+        "operations_hent_en_valutakode_type_1": {
+            "value": null
+        },
+        "operations_hent_valutakoder_type": {
+            "value": null
+        },
+        "namedValues_5f5f784e343153116c9990a4_value": {
+            "value": null
+        },
+        "namedValues_popasswd_value": {
+            "value": null
+        },
+        "namedValues_ubwpasswd_value": {
+            "value": null
+        },
+        "namedValues_ubw_pw_ub_value": {
+            "value": null
+        },
+        "namedValues_ubw_pw_ul_value": {
+            "value": null
+        },
+        "subscriptions_5f5f70e55dbafe004b070001_displayName": {
+            "value": null
+        },
+        "subscriptions_5f5f70e65dbafe004b070002_displayName": {
+            "value": null
+        },
+        "subscriptions_5f607efe343153116c9990b9_displayName": {
+            "value": null
+        },
+        "subscriptions_5f6080be343153116c9990c3_displayName": {
+            "value": null
+        },
+        "users_1_lastName": {
+            "value": null
+        },
+        "service_dfo_dev_name": {
+            "value": null
+        },
+        "components_insights_api_dev_externalid": {
+            "value": null
+        }
+    }
+}
