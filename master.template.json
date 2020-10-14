@@ -23,6 +23,12 @@
         "apimServiceName": {
             "defaultValue": "dfo-dev",
             "type": "String"
+        },
+        "_artifactsLocation": {
+            "type": "String"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "String"
         }
     },
     "variables": {},
