@@ -120,7 +120,7 @@
                 "displayName": "ansatteKurs",
                 "apiRevision": "1",
                 "description": "Tjenestekontrakt for overføring av informasjon om Kursgjennomføringer",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api.dfo.no/test/ansatteKurs",
                 "path": "ansattekurs/v1",
                 "protocols": [
@@ -159,7 +159,7 @@
             "properties": {
                 "displayName": "Echo API",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "http://echoapi.cloudapp.net/api",
                 "path": "echo",
                 "protocols": [
@@ -882,7 +882,7 @@
             "properties": {
                 "displayName": "aktiviteter",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "http://henter-fra-products-maskinporten-ubw-policies",
                 "path": "aktiviteter",
                 "protocols": [
@@ -904,7 +904,7 @@
             "properties": {
                 "displayName": "anlegg",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/anlegg/v1",
                 "path": "anlegg",
                 "protocols": [
@@ -926,7 +926,7 @@
             "properties": {
                 "displayName": "arbeidsordre",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/arbeidsordre/v1",
                 "path": "arbeidsordre",
                 "protocols": [
@@ -948,7 +948,7 @@
             "properties": {
                 "displayName": "avgiftskoder",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/avgiftskoder/v1",
                 "path": "avgiftskoder",
                 "protocols": [
@@ -970,7 +970,7 @@
             "properties": {
                 "displayName": "begreper",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/begreper/v1",
                 "path": "begreper",
                 "protocols": [
@@ -992,7 +992,7 @@
             "properties": {
                 "displayName": "begrepsverdier",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/begrepsverdier/v1",
                 "path": "begrepsverdier",
                 "protocols": [
@@ -1014,7 +1014,7 @@
             "properties": {
                 "displayName": "bilagstyper",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/bilagstyper/v1",
                 "path": "bilagstyper",
                 "protocols": [
@@ -1036,7 +1036,7 @@
             "properties": {
                 "displayName": "brukere",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/brukere/v1",
                 "path": "brukere",
                 "protocols": [
@@ -1058,7 +1058,7 @@
             "properties": {
                 "displayName": "firma",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/firma/v1",
                 "path": "firma",
                 "protocols": [
@@ -1080,7 +1080,7 @@
             "properties": {
                 "displayName": "gl07logs",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/objekter/gl07logs/v1",
                 "path": "gl07logs",
                 "protocols": [
@@ -1102,7 +1102,7 @@
             "properties": {
                 "displayName": "konteringsregler",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/konteringsregler/v1",
                 "path": "konteringsregler",
                 "protocols": [
@@ -1111,7 +1111,18 @@
                 "isCurrent": true,
                 "apiVersion": "v1",
                 "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimServiceName'), '5f747e055cb114bef9216a5a')]"
-            }
+            },
+            "resources": [
+                {
+                    "name": "ubw",
+                    "type": "tags",
+                    "apiVersion": "2019-12-01",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'konteringsregler')]"
+                    ]
+                }
+            ]
+
         },
         {
             "type": "Microsoft.ApiManagement/service/apis",
@@ -1124,7 +1135,7 @@
             "properties": {
                 "displayName": "kontoplan",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/kontoplan/v1",
                 "path": "kontoplan",
                 "protocols": [
@@ -1146,7 +1157,7 @@
             "properties": {
                 "displayName": "koststeder",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/koststeder/v1",
                 "path": "koststeder",
                 "protocols": [
@@ -1168,7 +1179,7 @@
             "properties": {
                 "displayName": "kunder",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/kunder/v1",
                 "path": "kunder",
                 "protocols": [
@@ -1190,7 +1201,7 @@
             "properties": {
                 "displayName": "leverandorer",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/leverandorer/v1",
                 "path": "leverandorer",
                 "protocols": [
@@ -1212,7 +1223,7 @@
             "properties": {
                 "displayName": "prosjekter",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/prosjekter/v1",
                 "path": "prosjekter",
                 "protocols": [
@@ -1234,7 +1245,7 @@
             "properties": {
                 "displayName": "regnskapsperioder",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/regnskapsperioder/v1",
                 "path": "regnskapsperioder",
                 "protocols": [
@@ -1256,7 +1267,7 @@
             "properties": {
                 "displayName": "ressurser",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/ressurser/v1",
                 "path": "ressurser",
                 "protocols": [
@@ -1278,7 +1289,7 @@
             "properties": {
                 "displayName": "valutakoder",
                 "apiRevision": "1",
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://api-dev.dfo.no/valutakoder/v1",
                 "path": "valutakoder",
                 "protocols": [
@@ -2390,17 +2401,7 @@
                         "headers": []
                     }
                 ]
-            },
-            "resources": [
-                {
-                    "name": "ubw",
-                    "type": "tags",
-                    "apiVersion": "2019-12-01",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'konteringsregler', 'hent-flere-konteringsregler')]"
-                    ]
-                }
-            ]
+            }
         },
         {
             "type": "Microsoft.ApiManagement/service/apis/operations",
@@ -2867,14 +2868,6 @@
             }
         },
         {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansattekurs/Oppdater_kursgjennomf%C3%B8ring/Kursinformasjon')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansattekurs')]"
-            ]
-        },
-        {
             "type": "Microsoft.ApiManagement/service/apis/policies",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/aktiviteter/policy')]",
@@ -3319,78 +3312,6 @@
             }
         },
         {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansatte/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatte')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansatteFamilie/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteFamilie')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansattefravar/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansattefravar')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansatteKontering/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteKontering')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansattekurs/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansattekurs')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ansatteSidegmd/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteSidegmd')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/infokontrakter/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'infokontrakter')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/organisasjoner/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'organisasjoner')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/stillinger/sap')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'stillinger')]"
-            ]
-        },
-        {
             "type": "Microsoft.ApiManagement/service/apis/operations/policies",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/aktiviteter/hent-aktiviteter/policy')]",
@@ -3480,258 +3401,6 @@
                 "value": "<policies>\r\n  <inbound>\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\">\r\n      <vary-by-header>Accept</vary-by-header>\r\n      <vary-by-header>Accept-Charset</vary-by-header>\r\n    </cache-lookup>\r\n    <rewrite-uri template=\"/resource\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <cache-store duration=\"3600\" />\r\n  </outbound>\r\n</policies>",
                 "format": "xml"
             }
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/aktiviteter/hent-aktiviteter/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'aktiviteter', 'hent-aktiviteter')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'aktiviteter')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/aktiviteter/hent-en-aktivitet/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'aktiviteter', 'hent-en-aktivitet')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'aktiviteter')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/anlegg/hent-anlegg/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'anlegg', 'hent-anlegg')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'anlegg')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/arbeidsordre/hente-flere-arbeidsordre/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'arbeidsordre', 'hente-flere-arbeidsordre')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'arbeidsordre')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/arbeidsordre/hent-en-arbeidsordre/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'arbeidsordre', 'hent-en-arbeidsordre')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'arbeidsordre')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/avgiftskoder/hent-avgiftskoder/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'avgiftskoder', 'hent-avgiftskoder')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'avgiftskoder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/begreper/hent-begreper/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'begreper', 'hent-begreper')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'begreper')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/begrepsverdier/hent-begrepsverdier/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'begrepsverdier', 'hent-begrepsverdier')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'begrepsverdier')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/bilagstyper/alle-bilagstyper/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'bilagstyper', 'alle-bilagstyper')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'bilagstyper')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/brukere/hent-en-bruker/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'brukere', 'hent-en-bruker')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'brukere')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/firma/hent-et-firma/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'firma', 'hent-et-firma')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'firma')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/gl07logs/hent-fra-gl07-logs/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'gl07logs', 'hent-fra-gl07-logs')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'gl07logs')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/kontoplan/hent-en-konto/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'kontoplan', 'hent-en-konto')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'kontoplan')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/kontoplan/hent-kontoplan/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'kontoplan', 'hent-kontoplan')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'kontoplan')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/koststeder/hent-ett-koststed/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'koststeder', 'hent-ett-koststed')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'koststeder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/koststeder/hent-koststeder/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'koststeder', 'hent-koststeder')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'koststeder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/kunder/hent-en-kunde/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'kunder', 'hent-en-kunde')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'kunder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/kunder/hent-kunder/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'kunder', 'hent-kunder')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'kunder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/leverandorer/hent-en-leverandor/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'leverandorer', 'hent-en-leverandor')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'leverandorer')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/leverandorer/hent-flere-leverand-rer/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'leverandorer', 'hent-flere-leverand-rer')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'leverandorer')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/prosjekter/hent-et-prosjekt/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'prosjekter', 'hent-et-prosjekt')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'prosjekter')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/prosjekter/hent-flere-prosjekter/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'prosjekter', 'hent-flere-prosjekter')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'prosjekter')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/regnskapsperioder/hent-en-regnskapsperiode/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'regnskapsperioder', 'hent-en-regnskapsperiode')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'regnskapsperioder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/regnskapsperioder/hent-flere-regnskapsperioder/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'regnskapsperioder', 'hent-flere-regnskapsperioder')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'regnskapsperioder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ressurser/hent-en-ressurs/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'ressurser', 'hent-en-ressurs')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ressurser')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/ressurser/hent-ressurser/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'ressurser', 'hent-ressurser')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ressurser')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/valutakoder/hent-en-valutakode/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'valutakoder', 'hent-en-valutakode')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'valutakoder')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/apis/operations/tags",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/valutakoder/hent-valutakoder/ubw')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'valutakoder', 'hent-valutakoder')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'valutakoder')]"
-            ]
         }
     ]
 }
