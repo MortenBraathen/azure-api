@@ -25,3 +25,51 @@ jobs:
         with:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
           creds: ${{ secrets.AZURECREDENTIALS_TEST }}
+
+      - name: PrepareAndStageARMTemplate
+        id: PrepareAndStageARMTemplate
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            stagingAccountName=dfoapimteststage
+            resourceGroup=dfo-azureapi-test
+            
+            # Deploy storage account used to stage files for deplyment
+            az storage account create \
+              --name $stagingAccountName \
+              --resource-group $resourceGroup \
+              --location norwayeast \
+              --access-tier Hot \
+              --kind StorageV2 \
+              --sku Standard_LRS \
+              --https-only true
+            
+            accountKey=$(az storage account keys list --account-name $stagingAccountName --resource-group $resourceGroup --query '[0].value')
+            storageAccountBlobEndpoint=$(az storage account show --name $stagingAccountName --resource-group $resourceGroup --query 'primaryEndpoints.blob')
+            
+            # Upload files in this repo
+            az storage blob upload-batch \
+              --destination upload \
+              --source $GITHUB_WORKSPACE \
+              --account-name $stagingAccountName \
+              --account-key $accountKey 
+            
+            # Genereate SAS token
+            end=$(date -d "@$(( $(busybox date +%s) + 3600 ))" '+%Y-%m-%dT%H:%MZ')
+            sasToken=$(az storage container generate-sas \
+              --name upload \
+              --account-name $stagingAccountName \
+              --account-key $accountKey \
+              --permissions lr \
+              --https-only \
+              --expiry $end)
+            echo "Genereated SAS token with expiry date" $end
+               
+            # Cleaning SAS token
+            sasTokenClean=`echo $sasToken | sed -r 's/["]+//g'`
+            # Cleaning Artifacts Location URL
+            artifactsLocationClean=`echo $storageAccountBlobEndpoint | sed -r 's/["]+//g'`
+            # Adding Articats Location to workflow output
+            echo ::set-output name=ARTIFACTS_LOCATION::$artifactsLocationClean
+            # Adding SAS token to output
+            echo ::set-output name=ARTIFACTS_LOCATION_SAS_TOKEN::$sasTokenClean
