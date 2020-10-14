@@ -73,3 +73,21 @@ jobs:
             echo ::set-output name=ARTIFACTS_LOCATION::$artifactsLocationClean
             # Adding SAS token to output
             echo ::set-output name=ARTIFACTS_LOCATION_SAS_TOKEN::$sasTokenClean
+
+      - name: Deploy Azure Resource Manager (ARM) Template
+        uses: Azure/arm-deploy@v1.0.1
+        with:
+          # Provide the scope of the deployment. Valid values are: 'resourcegroup', 'managementgroup', 'subscription'
+          scope: 'resourcegroup'
+          # Provide the Id of the subscription which should be used, only required for resource Group or Subscription deployments.
+          subscriptionId: 'cbcd2692-a169-40b9-ad50-d28dc33a06cc'
+          # Provide the target region, only required for management Group or Subscription deployments.
+          region: norwayeast
+          # Provide the name of a resource group, only required for resource Group deployments.
+          resourceGroupName: 'dfo-azureapi-test'
+          # Specify the path or URL to the Azure Resource Manager template.
+          template: ${{steps.PrepareAndStageARMTemplate.outputs.ARTIFACTS_LOCATION}}upload/master.template.json?${{steps.PrepareAndStageARMTemplate.outputs.ARTIFACTS_LOCATION_SAS_TOKEN}}
+          # Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template).
+          deploymentMode: 'Incremental'
+          # Supply deployment parameter values.
+          parameters: ${{steps.PrepareAndStageARMTemplate.outputs.ARTIFACTS_LOCATION}}upload/master.parameters.json?${{steps.PrepareAndStageARMTemplate.outputs.ARTIFACTS_LOCATION_SAS_TOKEN}} _artifactsLocation=${{steps.PrepareAndStageARMTemplate.outputs.ARTIFACTS_LOCATION}}upload/ _artifactsLocationSasToken=?${{steps.PrepareAndStageARMTemplate.outputs.ARTIFACTS_LOCATION_SAS_TOKEN}}
