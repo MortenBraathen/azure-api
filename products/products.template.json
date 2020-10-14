@@ -74,6 +74,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/aktiviteter')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -82,6 +83,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/anlegg')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -90,6 +92,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatte')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -98,6 +101,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteFamilie')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -106,6 +110,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansattefravar')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -114,6 +119,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteKontering')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -122,6 +128,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansattekurs')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -130,6 +137,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteSidegmd')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -138,6 +146,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/arbeidsordre')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -146,6 +155,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/avgiftskoder')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -154,6 +164,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/begreper')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -162,6 +173,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/begrepsverdier')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -170,6 +182,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/bilagstyper')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -178,6 +191,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/brukere')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -186,6 +200,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/starter/echo-api')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'starter')]"
             ]
@@ -194,6 +209,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/unlimited/echo-api')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'unlimited')]"
             ]
@@ -202,6 +218,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/firma')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -210,6 +227,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/gl07logs')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -218,6 +236,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/konteringsregler')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -226,6 +245,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/kontoplan')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -234,6 +254,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/koststeder')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -242,6 +263,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/kunder')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -250,6 +272,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/leverandorer')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -258,6 +281,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/organisasjoner')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -266,6 +290,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/prosjekter')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -274,6 +299,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/regnskapsperioder')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -282,6 +308,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/ressurser')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
@@ -290,6 +317,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/stillinger')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
             ]
@@ -298,6 +326,7 @@
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-ubw/valutakoder')]",
+            "properties": {},
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-ubw')]"
             ]
