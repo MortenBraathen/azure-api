@@ -2395,7 +2395,10 @@
                 {
                     "name": "ubw",
                     "type": "tags",
-                    "apiVersion": "2019-12-01"
+                    "apiVersion": "2019-12-01",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'konteringsregler', 'hent-flere-konteringsregler')]"
+                    ]
                 }
             ]
         },
