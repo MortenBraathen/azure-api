@@ -1111,18 +1111,7 @@
                 "isCurrent": true,
                 "apiVersion": "v1",
                 "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimServiceName'), '5f747e055cb114bef9216a5a')]"
-            },
-            "resources": [
-                {
-                    "name": "ubw",
-                    "type": "tags",
-                    "apiVersion": "2019-12-01",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'konteringsregler')]"
-                    ]
-                }
-            ]
-
+            }
         },
         {
             "type": "Microsoft.ApiManagement/service/apis",
