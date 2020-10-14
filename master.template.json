@@ -2,63 +2,85 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "apimServiceName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the API Management gateway"
+        "apimServiceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the API Management gateway"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located including a trailing '/'"
+            },
+            "defaultValue": ""
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated. Use the defaultValue if the staging location is not secured."
+            },
+            "defaultValue": ""
         }
-      },
-      "_artifactsLocation": {
-        "type": "string",
-        "metadata": {
-          "description": "The base URI where artifacts required by this template are located including a trailing '/'"
-        },
-        "defaultValue": ""
-      },
-      "_artifactsLocationSasToken": {
-        "type": "securestring",
-        "metadata": {
-          "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated. Use the defaultValue if the staging location is not secured."
-        },
-        "defaultValue": ""
-      }
     },
     "functions": [],
     "variables": {},
     "resources": [
-      {
-        "apiVersion": "2020-06-01",
-        "name": "serviceTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-            "uri": "[concat(parameters('_artifactsLocation'), 'service.template.json', parameters('_artifactsLocationSasToken'))]",
-            "contentVersion": "1.0.0.0"
-          },
-          "parameters": {
-            "apimServiceName": { "value": "[parameters('apimServiceName')]" }
-          }
-        }
-      },
-      {
-        "apiVersion": "2020-06-01",
-        "name": "allAPIs",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri":"[concat(parameters('_artifactsLocation'), 'rest.template.json', parameters('_artifactsLocationSasToken'))]",
-              "contentVersion":"1.0.0.0"
-          },
-          "parameters": {
-              "apimServiceName": {"value": "[parameters('apimServiceName')]" }
+        {
+            "apiVersion": "2020-06-01",
+            "name": "serviceTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('_artifactsLocation'), 'service.template.json', parameters('_artifactsLocationSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "apimServiceName": { "value": "[parameters('apimServiceName')]" }
+                }
             }
         },
-        "dependsOn": [
-            "serviceTemplate"
-        ]
-      }
+        {
+            "apiVersion": "2020-06-01",
+            "name": "allAPIs",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('_artifactsLocation'), 'rest.template.json', parameters('_artifactsLocationSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "apimServiceName": { "value": "[parameters('apimServiceName')]" },
+                    "namedValues_5f5f784e343153116c9990a4_value": {
+                        "value": "dummy"
+                    },
+                    "namedValues_popasswd_value": {
+                        "value": "dummy"
+                    },
+                    "namedValues_ubwpasswd_value": {
+                        "value": "dummy"
+                    },
+                    "namedValues_ubw_pw_ub_value": {
+                        "value": "dummy"
+                    },
+                    "namedValues_ubw_pw_ul_value": {
+                        "value": "dummy"
+                    },
+                    "_artifactsLocation": {
+                        "value": "[parameters('_artifactsLocation')]"
+                    },
+                    "_artifactsLocationSasToken": {
+                        "value": "[parameters('_artifactsLocationSasToken')]"
+                    }
+
+                }
+            },
+            "dependsOn": [
+                "serviceTemplate"
+            ]
+        }
     ],
     "outputs": {}
-  }
+}
