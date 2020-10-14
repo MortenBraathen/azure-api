@@ -17,9 +17,6 @@
         "namedValues_ubw_pw_ul_value": {
             "type": "SecureString"
         },
-        "users_1_lastName": {
-            "type": "SecureString"
-        },
         "apimServiceName": {
             "defaultValue": "dfo-dev",
             "type": "String"
@@ -684,45 +681,6 @@
             "properties": {
                 "displayName": "valutakoder",
                 "versioningScheme": "Segment"
-            }
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/groups",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/administrators')]",
-            "dependsOn": [
-
-            ],
-            "properties": {
-                "displayName": "Administrators",
-                "description": "Administrators is a built-in group. Its membership is managed by the system. Microsoft Azure subscription administrators fall into this group.",
-                "type": "system"
-            }
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/groups",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/developers')]",
-            "dependsOn": [
-
-            ],
-            "properties": {
-                "displayName": "Developers",
-                "description": "Developers is a built-in group. Its membership is managed by the system. Signed-in users fall into this group.",
-                "type": "system"
-            }
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/groups",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/guests')]",
-            "dependsOn": [
-
-            ],
-            "properties": {
-                "displayName": "Guests",
-                "description": "Guests is a built-in group. Its membership is managed by the system. Unauthenticated users visiting the developer portal fall into this group.",
-                "type": "system"
             }
         },
         {
@@ -1839,26 +1797,6 @@
                         "title": "Developer portal URL"
                     }
                 ]
-            }
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/users",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/1')]",
-            "dependsOn": [
-
-            ],
-            "properties": {
-                "firstName": "Administrator",
-                "email": "tarjei.bitustoeyl@dfo.no",
-                "state": "active",
-                "identities": [
-                    {
-                        "provider": "Azure",
-                        "id": "tarjei.bitustoeyl@dfo.no"
-                    }
-                ],
-                "lastName": "[parameters('users_1_lastName')]"
             }
         },
         {
@@ -4368,22 +4306,6 @@
             "name": "[concat(parameters('apimServiceName'), '/stillinger/sap')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'stillinger')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/groups/users",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/administrators/1')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/groups', parameters('apimServiceName'), 'administrators')]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/groups/users",
-            "apiVersion": "2019-12-01",
-            "name": "[concat(parameters('apimServiceName'), '/developers/1')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/groups', parameters('apimServiceName'), 'developers')]"
             ]
         },
         {

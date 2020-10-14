@@ -2,37 +2,10 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "publisherEmail": {
-        "type": "string",
-        "metadata": {
-          "description": "Publisher email"
-        }
-      },
-      "publisherName": {
-        "type": "string",
-        "metadata": {
-          "description": "Publisher name"
-        }
-      },
       "apimServiceName": {
         "type": "string",
         "metadata": {
           "description": "Name of the API Management gateway"
-        }
-      },
-      "sku": {
-        "type": "string",
-        "allowedValues": [ "Developer", "Standard", "Premium" ],
-        "defaultValue": "Developer",
-        "metadata": {
-          "description": "The pricing tier of this API Management service"
-        }
-      },
-      "skuCount": {
-        "type": "int",
-        "defaultValue": 1,
-        "metadata": {
-          "description": "The instance  size of this API Management service."
         }
       },
       "_artifactsLocation": {

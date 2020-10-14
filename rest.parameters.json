@@ -17,9 +17,6 @@
         "namedValues_ubw_pw_ul_value": {
             "value": "dummy"
         },
-        "users_1_lastName": {
-            "value": "dummy"
-        },
         "apimServiceName": {
             "value": "dfo-test"
         },
@@ -29,6 +26,5 @@
         "_artifactsLocationSasToken": {
             "value": ""
         }
-
     }
 }
