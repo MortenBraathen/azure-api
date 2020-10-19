@@ -80,6 +80,42 @@
         },
         {
             "apiVersion": "2020-06-01",
+            "name": "sapApiTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('_artifactsLocation'), 'apis/sap.template.json', parameters('_artifactsLocationSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "apimServiceName": { "value": "[parameters('apimServiceName')]" }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments', 'serviceTemplate')]"
+            ]
+        },
+        {
+            "apiVersion": "2020-06-01",
+            "name": "ubwApiTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('_artifactsLocation'), 'apis/ubw.template.json', parameters('_artifactsLocationSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "apimServiceName": { "value": "[parameters('apimServiceName')]" }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments', 'serviceTemplate')]"
+            ]
+        },
+        {
+            "apiVersion": "2020-06-01",
             "name": "productsTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
@@ -93,7 +129,8 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments', 'restTemplate')]"
+                "[resourceId('Microsoft.Resources/deployments', 'sapApiTemplate')]",
+                "[resourceId('Microsoft.Resources/deployments', 'ubwApiTemplate')]"
             ]
         }
     ],
