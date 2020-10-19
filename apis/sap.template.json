@@ -1,0 +1,457 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apimServiceName": {
+            "defaultValue": "dfo-dev",
+            "type": "String"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatte')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "ansatte",
+                "apiRevision": "1",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/ansatte",
+                "path": "ansatte/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatteFamilie')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "ansatteFamilie",
+                "apiRevision": "1",
+                "description": "Forslag til tjenestekontrakt for familie/kontaktperson API",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/ansatteFamilie",
+                "path": "ansatteFamilie/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansattefravar')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "ansatteFravar",
+                "apiRevision": "1",
+                "description": "Forslag til Fravær API",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/ansatteFravar",
+                "path": "ansattefravar/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatteKontering')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "ansatteKontering",
+                "apiRevision": "1",
+                "description": "Forslag til kontering API",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/ansattekontering",
+                "path": "ansatteKontering/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansattekurs')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "ansatteKurs",
+                "apiRevision": "1",
+                "description": "Tjenestekontrakt for overføring av informasjon om Kursgjennomføringer",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://api.dfo.no/test/ansatteKurs",
+                "path": "ansattekurs/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatteSidegmd')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "ansatteSidegm",
+                "apiRevision": "1",
+                "description": "Forslag til tjenestekontrakt for sidegjøremål",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/ansatteSidegm",
+                "path": "ansattesidegm/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/infokontrakter')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "infoKontrakter",
+                "apiRevision": "1",
+                "description": "Forslag til tjenestekontrakt for tilsetting og arbeidskontrakter\n* Hvis ingen gyldig post i dag, hent første gyldige post, eller siste gyldige post 30 dager tilbake i tid. Personer forsvinner fra grensesnittet 30 dager etter fratredelse. Default er spørring på dagens dato, men det er mulig å endre dato for spørring frem eller tilbake i tid. Da vil backend forholde seg til denne datoen som dagens dato. Eksempelvis vil det i 2022 være mulig å spørre på en person tilbake til 01.01.2021 selv om personen fratrådte 30.05.2021. Det vil også være mulig å spørre på en person 01.05.2021, selv om personen ikke tiltrer før 01.09.2021).",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/infoKontrakter",
+                "path": "infokontrakter/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/organisasjoner')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "organisasjoner",
+                "apiRevision": "1",
+                "description": "Datamodellene som er beskrevet her skal være generiske og dekkende for tilgang på data om person, organisasjon og stilling hos DFØ sine kunder.\n* Ansatte, gjester og innleide (gyldighet i dag - hvis ingen gyldig post i dag, hent første gyldige post, eller siste gyldige post 30 dager tilbake i tid. Personer forsvinner fra grensesnittet 30 dager etter fratredelse. Default er spørring på dagens dato, men det er mulig å 'innlest dato', og da vil backend forholde seg til denne datoen som dagens dato). \n* Lokasjoner (kun i bruk for SVV - ingen informasjon om dette i denne filen)\n* Stillinger (Henter stillingens navn og alle definerte knytninger som er gyldige fra i dag, og i all fremtid. Det vil også være mulig å definere 'innlest dato' for å hente historiske poster).\n* Orgenheter\n\nUpdate log\n1.0    Initial versions\n1.1    Updated on 18.02.2019\n1.2    Updated \n2.0 Oppdatert til å være generisk og gyldig for BOTT, og mer innledende definisjoner.",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTAdapter/organisasjoner",
+                "path": "organisasjoner/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/stillinger')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "displayName": "stillinger",
+                "apiRevision": "1",
+                "subscriptionRequired": false,
+                "serviceUrl": "https://dfopodci01.lp.sfso.no/RESTadapter/stillinger",
+                "path": "stillinger/v1",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatte/all')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatte')]"
+            ],
+            "properties": {
+                "displayName": "All",
+                "method": "GET",
+                "urlTemplate": "/*",
+                "templateParameters": [],
+                "responses": []
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansattefravar/Hent_fravær')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansattefravar')]"
+            ],
+            "properties": {
+                "displayName": "Hent fravær for ansatt",
+                "method": "GET",
+                "urlTemplate": "/{id}",
+                "templateParameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "values": []
+                    }
+                ],
+                "description": "Finn fravær for ansatt ved bruk av id (ansattnummer)",
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f620fd2343153116c9991df",
+                                "typeName": "fravar"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatteKontering/Hent_kontering')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteKontering')]"
+            ],
+            "properties": {
+                "displayName": "Finn kontering info for ansatt",
+                "method": "GET",
+                "urlTemplate": "/{id}",
+                "templateParameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "values": []
+                    }
+                ],
+                "description": "Finn info for kontering for ansatte ved bruk av id (ansattnummer)",
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f61bcd9343153116c999118",
+                                "typeName": "kontering"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/organisasjoner/Hent_orgenhet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'organisasjoner')]"
+            ],
+            "properties": {
+                "displayName": "Hent en orgenhet",
+                "method": "GET",
+                "urlTemplate": "/{id}",
+                "templateParameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "values": []
+                    }
+                ],
+                "description": "Hent en spesifikk orgenhet (organisasjonsenhet) ved bruk av id",
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f61bb44343153116c9990ff",
+                                "typeName": "orgenhet"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatteFamilie/Hent_person')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteFamilie')]"
+            ],
+            "properties": {
+                "displayName": "Hent en knytning mellom ansatt og familiemedlem",
+                "method": "GET",
+                "urlTemplate": "/{id}",
+                "templateParameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "values": []
+                    }
+                ],
+                "description": "Hent en spesifikk ansatt ved bruk av id (ansattnummer)",
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f610326343153116c9990f2",
+                                "typeName": "person"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansatteSidegmd/Hent_person')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteSidegmd')]"
+            ],
+            "properties": {
+                "displayName": "Hent en ansatt eller innleid",
+                "method": "GET",
+                "urlTemplate": "/{id}",
+                "templateParameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "values": []
+                    }
+                ],
+                "description": "Hent en spesifikk ansatt eller innleid ved bruk av id (ansattnummer)",
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f61bbc5343153116c999108",
+                                "typeName": "person"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/infokontrakter/Hent_person')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'infokontrakter')]"
+            ],
+            "properties": {
+                "displayName": "Hent informasjon om tilsetting og arbeidskontrakt",
+                "method": "GET",
+                "urlTemplate": "/{id}",
+                "templateParameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "values": []
+                    }
+                ],
+                "description": "Hent en spesifikk ansatt ved bruk av id (ansattnummer)",
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f630dd6343153116c9991f2",
+                                "typeName": "person"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        },
+                {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/ansattekurs/Oppdater_kursgjennomføring')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansattekurs')]"
+            ],
+            "properties": {
+                "displayName": "Oppdaterer oversikt over ansattes kurs",
+                "method": "PUT",
+                "urlTemplate": "/kursgjennomføring/",
+                "templateParameters": [],
+                "description": "Oppdaterer oversikt over ansattes kurs",
+                "request": {
+                    "queryParameters": [],
+                    "headers": [],
+                    "representations": [
+                        {
+                            "contentType": "application/json",
+                            "schemaId": "5f630e15343153116c9991f8",
+                            "typeName": "kursgjennomforing"
+                        }
+                    ]
+                },
+                "responses": [
+                    {
+                        "statusCode": 200,
+                        "representations": [
+                            {
+                                "contentType": "application/json",
+                                "schemaId": "5f630e15343153116c9991f8",
+                                "typeName": "kursgjennomforing"
+                            }
+                        ],
+                        "headers": []
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}

@@ -2,9 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "namedValues_5f5f784e343153116c9990a4_value": {
-            "value": "dummy"
-        },
         "namedValues_popasswd_value": {
             "value": "dummy"
         },

@@ -53,9 +53,6 @@
                 },
                 "parameters": {
                     "apimServiceName": { "value": "[parameters('apimServiceName')]" },
-                    "namedValues_5f5f784e343153116c9990a4_value": {
-                        "value": "dummy"
-                    },
                     "namedValues_popasswd_value": {
                         "value": "dummy"
                     },
