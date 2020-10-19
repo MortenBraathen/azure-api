@@ -93,7 +93,8 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments', 'serviceTemplate')]"
+                "[resourceId('Microsoft.Resources/deployments', 'serviceTemplate')]",
+                "[resourceId('Microsoft.Resources/deployments', 'restTemplate')]"
             ]
         },
         {
@@ -111,7 +112,8 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments', 'serviceTemplate')]"
+                "[resourceId('Microsoft.Resources/deployments', 'serviceTemplate')]",
+                "[resourceId('Microsoft.Resources/deployments', 'restTemplate')]"
             ]
         },
         {
