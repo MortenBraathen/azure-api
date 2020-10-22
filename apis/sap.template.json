@@ -284,28 +284,9 @@
                 "displayName": "Hent en orgenhet",
                 "method": "GET",
                 "urlTemplate": "/*",
-                "templateParameters": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "values": []
-                    }
-                ],
-                "description": "Hent en spesifikk orgenhet (organisasjonsenhet) ved bruk av id",
-                "responses": [
-                    {
-                        "statusCode": 200,
-                        "representations": [
-                            {
-                                "contentType": "application/json",
-                                "schemaId": "5f61bb44343153116c9990ff",
-                                "typeName": "orgenhet"
-                            }
-                        ],
-                        "headers": []
-                    }
-                ]
+                "templateParameters": [],
+                "description": "Hent orgenhet (organisasjonsenhet) ved bruk av id",
+                "responses": []
             }
         },
         {
