@@ -292,6 +292,22 @@
         {
             "type": "Microsoft.ApiManagement/service/apis/operations",
             "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/stillinger/Hent_stillinger')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'stillinger')]"
+            ],
+            "properties": {
+                "displayName": "Hent en stilling",
+                "method": "GET",
+                "urlTemplate": "/*",
+                "templateParameters": [],
+                "description": "Hent stillinger",
+                "responses": []
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/operations",
+            "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/ansatteFamilie/Hent_person')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'ansatteFamilie')]"
