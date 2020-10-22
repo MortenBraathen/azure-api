@@ -283,7 +283,7 @@
             "properties": {
                 "displayName": "Hent en orgenhet",
                 "method": "GET",
-                "urlTemplate": "/{id}",
+                "urlTemplate": "/*",
                 "templateParameters": [
                     {
                         "name": "id",
