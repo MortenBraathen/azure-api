@@ -213,29 +213,10 @@
             "properties": {
                 "displayName": "Hent fravær for ansatt",
                 "method": "GET",
-                "urlTemplate": "/{id}",
-                "templateParameters": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "values": []
-                    }
-                ],
+                "urlTemplate": "/*",
+                "templateParameters": [],
                 "description": "Finn fravær for ansatt ved bruk av id (ansattnummer)",
-                "responses": [
-                    {
-                        "statusCode": 200,
-                        "representations": [
-                            {
-                                "contentType": "application/json",
-                                "schemaId": "5f620fd2343153116c9991df",
-                                "typeName": "fravar"
-                            }
-                        ],
-                        "headers": []
-                    }
-                ]
+                "responses": []
             }
         },
         {
@@ -248,29 +229,10 @@
             "properties": {
                 "displayName": "Finn kontering info for ansatt",
                 "method": "GET",
-                "urlTemplate": "/{id}",
-                "templateParameters": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "values": []
-                    }
-                ],
+                "urlTemplate": "/*",
+                "templateParameters": [],
                 "description": "Finn info for kontering for ansatte ved bruk av id (ansattnummer)",
-                "responses": [
-                    {
-                        "statusCode": 200,
-                        "representations": [
-                            {
-                                "contentType": "application/json",
-                                "schemaId": "5f61bcd9343153116c999118",
-                                "typeName": "kontering"
-                            }
-                        ],
-                        "headers": []
-                    }
-                ]
+                "responses": []
             }
         },
         {
@@ -315,29 +277,10 @@
             "properties": {
                 "displayName": "Hent en knytning mellom ansatt og familiemedlem",
                 "method": "GET",
-                "urlTemplate": "/{id}",
-                "templateParameters": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "values": []
-                    }
-                ],
+                "urlTemplate": "/*",
+                "templateParameters": [],
                 "description": "Hent en spesifikk ansatt ved bruk av id (ansattnummer)",
-                "responses": [
-                    {
-                        "statusCode": 200,
-                        "representations": [
-                            {
-                                "contentType": "application/json",
-                                "schemaId": "5f610326343153116c9990f2",
-                                "typeName": "person"
-                            }
-                        ],
-                        "headers": []
-                    }
-                ]
+                "responses": []
             }
         },
         {
@@ -350,29 +293,10 @@
             "properties": {
                 "displayName": "Hent en ansatt eller innleid",
                 "method": "GET",
-                "urlTemplate": "/{id}",
-                "templateParameters": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "values": []
-                    }
-                ],
+                "urlTemplate": "/*",
+                "templateParameters": [],
                 "description": "Hent en spesifikk ansatt eller innleid ved bruk av id (ansattnummer)",
-                "responses": [
-                    {
-                        "statusCode": 200,
-                        "representations": [
-                            {
-                                "contentType": "application/json",
-                                "schemaId": "5f61bbc5343153116c999108",
-                                "typeName": "person"
-                            }
-                        ],
-                        "headers": []
-                    }
-                ]
+                "responses": []
             }
         },
         {
@@ -385,29 +309,10 @@
             "properties": {
                 "displayName": "Hent informasjon om tilsetting og arbeidskontrakt",
                 "method": "GET",
-                "urlTemplate": "/{id}",
-                "templateParameters": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "values": []
-                    }
-                ],
+                "urlTemplate": "/*",
+                "templateParameters": [],
                 "description": "Hent en spesifikk ansatt ved bruk av id (ansattnummer)",
-                "responses": [
-                    {
-                        "statusCode": 200,
-                        "representations": [
-                            {
-                                "contentType": "application/json",
-                                "schemaId": "5f630dd6343153116c9991f2",
-                                "typeName": "person"
-                            }
-                        ],
-                        "headers": []
-                    }
-                ]
+                "responses": []
             }
         },
         {
