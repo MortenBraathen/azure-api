@@ -118,6 +118,15 @@
         {
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2019-12-01",
+            "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/infoKontrakter')]",
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimServiceName'), 'maskinporten-po')]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2019-12-01",
             "name": "[concat(parameters('apimServiceName'), '/maskinporten-po/ansatteKontering')]",
             "properties": {},
             "dependsOn": [
